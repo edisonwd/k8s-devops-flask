@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ${PROJECT_NAME}
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ${PROJECT_NAME}
+  template:
+    metadata:
+      labels:
+        app: ${PROJECT_NAME}
+    spec:
+      containers:
+      - name: ${PROJECT_NAME}
+        image: ${ORIGIN_REPO}/${REPO}:${IMAGE_TAG}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8888
+        env:
+        - name: REVISION
+          value: ${REVISION}
+      imagePullSecrets:
+      - name: wangdi-docker-password
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ${PROJECT_NAME}-svc
+  namespace: default
+spec:
+  ports:
+  - name: port
+    port: 8500
+    protocol: TCP
+    targetPort: 8888
+  selector:
+    app: ${PROJECT_NAME}
+  type: NodePort
