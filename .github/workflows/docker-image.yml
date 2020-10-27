@@ -1,10 +1,7 @@
 name: Docker Image CI
 
-on:
-  push:
-    branches: [ $default-branch ]
-  pull_request:
-    branches: [ $default-branch ]
+on: push
+
 
 jobs:
 
@@ -14,5 +11,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: docker version
+      run: docker version
+
     - name: Build the Docker image
+
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
