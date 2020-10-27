@@ -5,7 +5,7 @@ name: test init env
 on:
   push:
     branches: 
-      - main
+      - master
 
 jobs:
   build:
