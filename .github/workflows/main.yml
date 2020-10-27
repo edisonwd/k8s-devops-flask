@@ -2,10 +2,7 @@
 
 name: test init env
 
-on:
-  push:
-    branches: 
-      - master
+on: push
 
 jobs:
   build:
@@ -19,5 +16,6 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          sudo apt-get update
+          free -h
+          cat /proc/cpuinfo
           sudo apt-get -y install upx-ucl unzip
