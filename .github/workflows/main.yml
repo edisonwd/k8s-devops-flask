@@ -1,10 +1,7 @@
 
 name: test init env
 
-on:
-  push:
-    branches: 
-      - main
+on: push
 
 jobs:
   build:
