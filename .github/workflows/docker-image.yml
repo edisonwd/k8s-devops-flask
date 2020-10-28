@@ -16,4 +16,9 @@ jobs:
 
     - name: Build the Docker image
 
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: |
+        docker ps
+        docker login --username=tb33599345 --password=abcd1234 registry.cn-shenzhen.aliyuncs.com
+        docker build . --file Dockerfile --tag registry.cn-shenzhen.aliyuncs.com/devan/flask-demo:$(date +%s)
+        docker push registry.cn-shenzhen.aliyuncs.com/devan/flask-demo:$(date +%s)
+        
