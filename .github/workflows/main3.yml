@@ -15,3 +15,7 @@ jobs:
         LAST_NAME: Octocat
       run: |
         echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+        du -sh /etc/apt/sources.list.d/
+        du -sh /usr/share/dotnet 
+        du -sh /usr/local/lib/android 
+        du -sh /opt/ghc
