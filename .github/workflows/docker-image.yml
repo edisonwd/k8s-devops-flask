@@ -11,6 +11,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: show cpuinfo
+      run: |
+        cat /proc/cpuinfo
+        free -h
+        df -h
     - name: docker version
       run: docker version
 
@@ -19,6 +24,6 @@ jobs:
       run: |
         docker ps
         docker login --username=tb33599345 --password=abcd1234 registry.cn-shenzhen.aliyuncs.com
-        docker build . --file Dockerfile --tag registry.cn-shenzhen.aliyuncs.com/devan/flask-demo:$(date)
-        docker push registry.cn-shenzhen.aliyuncs.com/devan/flask-demo:$(date)
+        docker build . --file Dockerfile --tag registry.cn-shenzhen.aliyuncs.com/devan/flask-demo:v1
+        docker push registry.cn-shenzhen.aliyuncs.com/devan/flask-demo:v1
         
