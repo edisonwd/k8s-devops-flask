@@ -31,6 +31,8 @@ pipeline{
                     configs: 'deployment.yaml',
                     enableConfigSubstitution: true,
                     kubeconfigId: 'kubeconfig',
+                    secretNamespace: "$NAMESPACE",
+                    secretName: 'my-secret',
                     dockerCredentials: [
                         [credentialsId: 'docker-pwd', url: "$REGISTRY_URL"],
                     ],
