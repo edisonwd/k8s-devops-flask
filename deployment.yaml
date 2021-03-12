@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ${PROJECT_NAME}
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: ${PROJECT_NAME}
-        image: ${ORIGIN_REPO}/${PROJECT_NAME}:${IMAGE_TAG}
+        image: ${IMAGE_URL}
         imagePullPolicy: Always
         ports:
         - containerPort: 8888
