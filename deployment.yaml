@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: ${PROJECT_NAME}
-        image: ${ORIGIN_REPO}/${REPO}:${IMAGE_TAG}
+        image: ${ORIGIN_REPO}/${PROJECT_NAME}:${IMAGE_TAG}
         imagePullPolicy: Always
         ports:
         - containerPort: 8888
