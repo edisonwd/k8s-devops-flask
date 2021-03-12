@@ -22,7 +22,7 @@ spec:
         - name: REVISION
           value: ${REVISION}
       imagePullSecrets:
-      - name: wangdi-docker-password
+      - name: $KUBERNETES_SECRET_NAME
 
 ---
 apiVersion: v1
